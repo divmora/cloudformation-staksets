@@ -1,0 +1,26 @@
+# OS & Editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Python cache & venv
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+.pytest_cache/
+
+# CloudFormation & SAM artifacts
+.aws-sam/
+*.packaged.yaml
+*.packaged.yml
+
+# Logs & temp
+*.log
+.tmp/
