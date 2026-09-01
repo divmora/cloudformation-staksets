@@ -1,5 +1,9 @@
 # AWS CloudFormation StackSets
 
+[![Latest Release](https://img.shields.io/github/v/release/divmora/cloudformation-staksets?logo=github)](https://github.com/divmora/cloudformation-staksets/releases)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+[![CI/CD](https://github.com/divmora/cloudformation-staksets/actions/workflows/ci.yml/badge.svg)](https://github.com/divmora/cloudformation-staksets/actions)
+[![Security Policy](https://img.shields.io/badge/Security-Policy-green.svg)](SECURITY.md)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/divmora/cloudformation-staksets)
 
 A curated collection of AWS CloudFormation StackSet templates designed for multi-account governance, security baseline enforcement, and compliance automation across AWS Organizations and AWS Control Tower.
@@ -10,10 +14,23 @@ A curated collection of AWS CloudFormation StackSet templates designed for multi
 
 ```text
 .
-├── README.md
+├── LICENSE                       # Apache License 2.0
+├── README.md                     # Repository catalog & overview
+├── AGENTS.md                     # Agent guidelines & safety standards
+├── CONTRIBUTING.md               # Contribution workflow & conventional commits
+├── SECURITY.md                   # Vulnerability disclosure policy
+├── Makefile                      # Validation and linting targets
+├── .release-please-config.json   # Release Please configuration
+├── .release-please-manifest.json # Semantic version tracking
+├── .github/
+│   ├── dependabot.yml            # Automated GitHub Actions updates
+│   └── workflows/
+│       ├── ci.yml                # Template linting & validation CI
+│       ├── release-please.yml    # Automated versioning and changelog
+│       └── semantic-pull-request.yml # PR title validation
 └── iam-password-policy/
-    ├── README.md
-    └── iam-password-policy.yaml
+    ├── README.md                 # Architecture, parameters & compliance mapping
+    └── iam-password-policy.yaml  # CloudFormation template
 ```
 
 ---
@@ -26,7 +43,7 @@ A curated collection of AWS CloudFormation StackSet templates designed for multi
 
 ---
 
-## 🚀 Prerequisites
+## 🚀 Prerequisites & Permissions
 
 Before deploying these templates as CloudFormation StackSets:
 
@@ -85,11 +102,36 @@ aws cloudformation create-stack-instances \
 
 ---
 
-## 🤝 Contributing
+## 💻 Development & Validation
 
-Contributions to add new baseline StackSets or improve existing templates are welcome:
+This project provides standard `make` targets to lint and validate CloudFormation templates locally:
 
-1. Create a dedicated directory for the StackSet (e.g., `s3-public-access-block/`).
-2. Include the CloudFormation template (`.yaml`).
-3. Include a comprehensive `README.md` detailing parameters, architecture, compliance mappings, and deployment steps.
-4. Submit a pull request.
+```bash
+# Validate template syntax and check CLI availability
+make validate
+
+# Lint YAML syntax
+make lint
+
+# Run all verification checks
+make test
+
+# Clean temporary build/test artifacts
+make clean
+```
+
+---
+
+## 🤝 Community & Contributing
+
+We welcome community contributions, additional StackSet templates, and compliance enhancements!
+
+- **Contributing Guide**: Please review [CONTRIBUTING.md](CONTRIBUTING.md) for details on our workflow, pull request guidelines, and conventional commits.
+- **Code of Conduct**: This project follows the [DIVMORA Technologies Code of Conduct](https://github.com/divmora/.github/blob/main/CODE_OF_CONDUCT.md).
+- **Security**: For vulnerability reporting, please review our [Security Policy](SECURITY.md) or email **security@divmora.com**.
+
+---
+
+## 📄 License
+
+This repository is licensed under the **Apache License 2.0**. See the [LICENSE](LICENSE) file for details. You are free to use, modify, and deploy these templates in any commercial, enterprise, or personal environment without fees or commercial restrictions.
